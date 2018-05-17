@@ -67,7 +67,6 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TrainContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -83,6 +82,12 @@
     <EmbeddedResource Include="Migrations\201805160654081_TrainContext.resx">
       <DependentUpon>201805160654081_TrainContext.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\TrainData\TrainData\TrainData.csproj">
+      <Project>{23A86190-6109-41F8-ACEB-4EDAD6ED9095}</Project>
+      <Name>TrainData</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
