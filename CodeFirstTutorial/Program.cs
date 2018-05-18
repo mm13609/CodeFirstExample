@@ -4,16 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TrainData;
+using Unity;
 
 namespace CodeFirstTutorial
 {
     class Program
     {
+        private static ITrainRepository _trainRepository;
         private static string continueProcess = "y";
-        private static ITrainRepository _trainRepository = new TrainRepository();
-
+       
         static void Main(string[] args)
         {
+            IUnityContainer container = new UnityContainer();
+            container.RegisterType<ITrainRepository, TrainRepository>();
+            _trainRepository = container.Resolve<TrainRepository>();
+
             Console.WriteLine("These are the all the trains. Would like to add trains? (Y/N)");
 
             foreach (var train in _trainRepository.ListTrains())
